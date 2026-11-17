@@ -29,6 +29,8 @@ export default function EventCard({
         />
       </div>
 
+      
+
       {/* Event Content */}
       <div className="min-w-0 ml-5 flex-1">
         <a href={href}>
