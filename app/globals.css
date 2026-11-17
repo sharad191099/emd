@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+:root {
+  --font-raleway: "Raleway", sans-serif;
+}
+
+body {
+  font-family: var(--font-raleway);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+:root {
+  --gray-bg: #f1f1f1;
+}
+
+@keyframes partners-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes partners-right {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-35%);
+  }
+}
+@keyframes horizontal-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 250px;
+  }
+}
+.marquee-track {
+  animation: marquee 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-60%);
+  }
+}
+.marquee-track2 {
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-15%);
+  }
+}
+
+@layer components {
+  .diamond-list > li {
+    @apply relative pl-5 leading-6;
+  }
+
+  .diamond-list > li::before {
+    content: "";
+    @apply absolute left-0 top-[10px] h-1.5 w-1.5 rotate-45 bg-blue-900;
+  }
+}
+
+@layer components {
+  .check-list > li {
+    @apply relative pl-8 leading-7;
+  }
+
+  .check-list > li::before {
+    content: "✓";
+    @apply absolute left-0 top-0 font-bold text-green-600;
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-partners-left {
+  animation: partners-left 35s linear infinite;
+}
+
+.animate-partners-right {
+  animation: partners-right 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-partners-left,
+  .animate-partners-right {
+    animation: none;
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
